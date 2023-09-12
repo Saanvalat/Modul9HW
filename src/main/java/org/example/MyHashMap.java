@@ -29,7 +29,7 @@ public class MyHashMap<K, V> {
     private int hash(K key) {
         return key.hashCode() % table.length;
     }
-
+    // put(Object key, Object value) додає пару ключ + значення
     public void put(K key, V value) {
         int index = hash(key);
         Node<K, V> newNode = new Node<>(key, value);
@@ -53,7 +53,7 @@ public class MyHashMap<K, V> {
         }
         size++;
     }
-
+    //get(Object key) повертає значення (Object value) за ключем
     public V get(K key) {
         int index = hash(key);
         Node<K, V> current = table[index];
@@ -65,18 +65,18 @@ public class MyHashMap<K, V> {
             current = current.next;
         }
 
-        return null; // Ключ не знайдено.
+        return null;
     }
-
+    //size() повертає розмір колекції
     public int size() {
         return size;
     }
-
+    //clear() очищає колекцію
     public void clear() {
         table = new Node[table.length];
         size = 0;
     }
-
+    //remove(Object key) видаляє пару за ключем
     public void remove(K key) {
         int index = hash(key);
         Node<K, V> current = table[index];
